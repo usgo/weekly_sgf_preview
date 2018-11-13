@@ -1,20 +1,25 @@
 
 <FilesMatch "\.(hs|hi|o)$">
-  order allow,deny
-  deny from all
+  # order allow,deny
+  # deny from all
+  Require all denied
 </FilesMatch>
 
 <Files clear_cached.sh>
-  order allow,deny
-  deny from all
+  # order allow,deny
+  # deny from all
+  Require all denied
 </Files>
 
 <Files generate_preview>
   SetHandler cgi-script
+  Require all granted
+  Allow from all
 </Files>
 
 AddType text/plain .toplay
 
 RewriteEngine On
+# RewriteBase /weekly_sgf_preview
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ generate_preview?req=$1 [T=application/x-httpd-cgi,QSA,L]

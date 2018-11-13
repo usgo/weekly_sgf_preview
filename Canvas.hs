@@ -1,4 +1,5 @@
 -- Copyright 2011 by Joshua Simmons <joshua.simmons@emptypath.com>
+{-# LANGUAGE FlexibleContexts #-}
 module Canvas where
 
 import qualified Data.Map as M
